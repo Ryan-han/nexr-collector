@@ -1,0 +1,20 @@
+# Each sink's ${sinkName}
+agent.sinks.${sinkName}.type = hdfs
+agent.sinks.${sinkName}.hdfs.path = ${hdfsPath}
+agent.sinks.${sinkName}.hdfs.fileType = DataStream
+agent.sinks.${sinkName}.hdfs.filePrefix = %{basename}.1
+agent.sinks.${sinkName}.hdfs.round = true
+agent.sinks.${sinkName}.hdfs.roundValue = 10
+agent.sinks.${sinkName}.hdfs.roundUnit = minute
+agent.sinks.${sinkName}.hdfs.writeFormat = Text
+agent.sinks.${sinkName}.hdfs.threadsPoolSize = 30
+agent.sinks.${sinkName}.hdfs.rollTimerPoolSize = 10
+agent.sinks.${sinkName}.hdfs.rollSize = 0
+agent.sinks.${sinkName}.hdfs.rollCount = 0
+agent.sinks.${sinkName}.hdfs.rollInterval = 0
+agent.sinks.${sinkName}.hdfs.idleTimeout = 100
+agent.sinks.${sinkName}.hdfs.callTimeout = 600000
+agent.sinks.${sinkName}.hdfs.batchSize = 10000
+agent.sinks.${sinkName}.hdfs.closeTries = 2
+agent.sinks.${sinkName}.hdfs.retryInterval = 10
+agent.sinks.${sinkName}.channel = ${channelName}

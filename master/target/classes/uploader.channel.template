@@ -1,0 +1,4 @@
+agent.channels.${channelName}.type = memory
+agent.channels.${channelName}.capacity = 1000000
+agent.channels.${channelName}.transactionCapacity = 10000
+

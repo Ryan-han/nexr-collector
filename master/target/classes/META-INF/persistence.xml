@@ -1,0 +1,51 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+
+    <persistence-unit name="master-mysql" transaction-type="RESOURCE_LOCAL">
+        <class>com.nexr.master.jpa.CollectInfo</class>
+        <class>com.nexr.master.jpa.UploaderConfig</class>
+        <class>com.nexr.master.jpa.MonitorConfig</class>
+
+        <properties>
+            <property name="openjpa.ConnectionDriverName" value="org.apache.commons.dbcp.BasicDataSource"/>
+
+            <property name="openjpa.ConnectionProperties" value="**INVALID**"/> <!--Set by StoreService at init time -->
+
+            <property name="openjpa.DetachState" value="fetch-groups(DetachedStateField=true)"/>
+            <property name="openjpa.LockManager" value="pessimistic"/>
+            <property name="openjpa.ReadLockLevel" value="read"/>
+            <property name="openjpa.WriteLockLevel" value="write"/>
+            <property name="openjpa.jdbc.TransactionIsolation" value="repeatable-read"/> <!--CUSTOM-->
+            <property name="openjpa.jdbc.DBDictionary" value="UseGetBytesForBlobs=true"/>
+            <property name="openjpa.jdbc.DBDictionary" value="UseSetBytesForBlobs=true"/>
+            <property name="openjpa.jdbc.DBDictionary" value="BlobBufferSize=500000"/>
+            <property name="openjpa.jdbc.DBDictionary" value="batchLimit=50"/>
+            <property name="openjpa.jdbc.DBDictionary" value="ClobTypeName=MEDIUMTEXT"/>
+            <property name="openjpa.jdbc.DBDictionary" value="BlobTypeName=MEDIUMBLOB"/>
+            <property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>
+            <property name="openjpa.RuntimeUnenhancedClasses" value="warn"/>
+            <property name="openjpa.Log" value="log4j"/>
+
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="master-mysql-init" transaction-type="RESOURCE_LOCAL">
+        <class>com.nexr.master.jpa.CollectInfo</class>
+        <class>com.nexr.master.jpa.UploaderConfig</class>
+        <class>com.nexr.master.jpa.MonitorConfig</class>
+
+        <properties>
+            <property name="openjpa.ConnectionUserName" value="root" />
+            <property name="openjpa.ConnectionPassword" value="root" />
+            <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost/xtasinfo"/>
+            <property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema" />
+            <property name="openjpa.Log" value="SQL=TRACE" />
+            <property name="openjpa.ConnectionFactoryProperties" value="printParameters=true" />
+            <property name="openjpa.jdbc.MappingDefaults"
+                      value="ForeignKeyDeleteAction=restrict,
+JoinForeignKeyDeleteAction=restrict" />
+        </properties>
+    </persistence-unit>
+
+</persistence>

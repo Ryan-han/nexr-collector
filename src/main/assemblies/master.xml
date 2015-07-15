@@ -1,0 +1,71 @@
+<assembly>
+    <id>distro</id>
+    <formats>
+        <format>dir</format>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <files>
+        <file>
+            <source>${project.build.directory}/${artifact.artifactId}-${artifact.version}.jar</source>
+            <outputDirectory>nexr-collector-${project.version}/lib</outputDirectory>
+        </file>
+    </files>
+    <fileSets>
+        <!-- Distro files, readme, licenses, etc -->
+        <fileSet>
+            <directory>${basedir}/bin</directory>
+            <outputDirectory>nexr-collector-${project.version}/bin</outputDirectory>
+            <includes>
+                <include>*</include>
+            </includes>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/conf/uploader</directory>
+            <outputDirectory>nexr-collector-${project.version}/conf/uploader</outputDirectory>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/conf/umonitor</directory>
+            <outputDirectory>nexr-collector-${project.version}/conf/umonitor</outputDirectory>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/conf/cmaster</directory>
+            <outputDirectory>nexr-collector-${project.version}/conf/cmaster</outputDirectory>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>${basedir}/../interceptor/target/</directory>
+            <outputDirectory>nexr-collector-${project.version}/plugins.d/collector/lib</outputDirectory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/../sink/target/nexr-collector-sink-${project.version}-sink/lib</directory>
+            <outputDirectory>nexr-collector-${project.version}/plugins.d/collector/lib</outputDirectory>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
+
+    </fileSets>
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>nexr-collector-${project.version}/lib</outputDirectory>
+            <unpack>false</unpack>
+            <scope>compile</scope>
+        </dependencySet>
+    </dependencySets>
+</assembly>

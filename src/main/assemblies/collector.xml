@@ -1,0 +1,17 @@
+<assembly>
+    <id>distro</id>
+    <formats>
+        <format>dir</format>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <files>
+        <file>
+            <source>${project.build.directory}/${artifact.artifactId}-${artifact.version}.jar</source>
+            <outputDirectory>collector-config/${project.version}/lib</outputDirectory>
+        </file>
+    </files>
+
+
+</assembly>

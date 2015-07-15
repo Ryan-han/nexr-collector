@@ -1,0 +1,3 @@
+agent.sources = ${sourceList}
+agent.channels = ${channelList}
+agent.sinks = ${sinkList}

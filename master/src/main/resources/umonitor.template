@@ -1,0 +1,28 @@
+monitoragent.sources = avroSrc
+monitoragent.channels = memoryChannel
+monitoragent.sinks = HttpSink
+
+monitoragent.sources.avroSrc.type=avro
+monitoragent.sources.avroSrc.bind=${local_agent_server}
+monitoragent.sources.avroSrc.port=41414
+
+monitoragent.sources.avroSrc.interceptors = timeInterceptor hostInterceptor
+monitoragent.sources.avroSrc.interceptors.timeInterceptor.type = timestamp
+monitoragent.sources.avroSrc.interceptors.timeInterceptor.preserveExisting = true
+monitoragent.sources.avroSrc.interceptors.hostInterceptor.type = host
+monitoragent.sources.avroSrc.interceptors.hostInterceptor.useIP = false
+monitoragent.sources.avroSrc.interceptors.hostInterceptor.hostHeader = hostname
+
+monitoragent.sources.avroSrc.channels = memoryChannel
+
+monitoragent.sinks.HttpSink.type = com.nexr.sink.HttpSink
+monitoragent.sinks.HttpSink.uploader.spooldir = ${upload_dirs}
+monitoragent.sinks.HttpSink.uploader.server = ${local_agent_server}
+monitoragent.sinks.HttpSink.uploader.uploadpath = ${uploadpath}
+monitoragent.sinks.HttpSink.uploader.start = ${uploader_start_command}
+monitoragent.sinks.HttpSink.uploader.stop = ${uploader_stop_command}
+monitoragent.sinks.HttpSink.target.url = ${cmaster_server}
+monitoragent.sinks.HttpSink.channel = memoryChannel
+
+monitoragent.channels.memoryChannel.type = memory
+monitoragent.channels.memoryChannel.capacity = 10000

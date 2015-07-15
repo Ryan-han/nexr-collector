@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Jul 07 10:43:39 KST 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-014e-662e-ca70-00000d93b4f8 
+on database directory memory:/home/ndap/workspace/kdap/kdap-collector/master/myDB with class loader sun.misc.Launcher$AppClassLoader@5552bb15 
+Loaded from file:/home/ndap/.m2/repository/org/apache/derby/derby/10.10.1.1/derby-10.10.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_71-b14
+user.dir=/home/ndap/workspace/kdap/kdap-collector/master
+os.name=Linux
+os.arch=amd64
+os.version=2.6.32-431.el6.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

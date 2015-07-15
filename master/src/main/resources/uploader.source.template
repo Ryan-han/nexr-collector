@@ -1,0 +1,9 @@
+agent.sources.${sourceName}.type = spooldir
+agent.sources.${sourceName}.spoolDir = ${spoolDir}
+agent.sources.${sourceName}.deletePolicy = never
+agent.sources.${sourceName}.batchSize = 100
+agent.sources.${sourceName}.bufferMaxLineLength = 80000
+agent.sources.${sourceName}.fileHeader = true
+agent.sources.${sourceName}.fileHeaderKey = file
+agent.sources.${sourceName}.basenameHeader = true
+agent.sources.${sourceName}.channels = ${channelName}

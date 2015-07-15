@@ -1,0 +1,10 @@
+agent.sources.${sourceName}.interceptors = timeInterceptor hostInterceptor datatypeInterceptor
+agent.sources.${sourceName}.interceptors.timeInterceptor.type = timestamp
+agent.sources.${sourceName}.interceptors.timeInterceptor.preserveExisting = true
+agent.sources.${sourceName}.interceptors.hostInterceptor.type = host
+agent.sources.${sourceName}.interceptors.hostInterceptor.useIP = false
+agent.sources.${sourceName}.interceptors.hostInterceptor.hostHeader = hostname
+agent.sources.${sourceName}.interceptors.datatypeInterceptor.type = com.nexr.interceptor.DataTypeExtractorInterceptor$Builder
+agent.sources.${sourceName}.interceptors.datatypeInterceptor.datatypeHeader = datatype
+agent.sources.${sourceName}.interceptors.datatypeInterceptor.datatype = ${dataType}
+agent.sources.${sourceName}.interceptors.datatypeInterceptor.sinkCount = 20
